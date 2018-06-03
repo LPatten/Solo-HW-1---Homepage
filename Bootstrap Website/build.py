@@ -1,4 +1,4 @@
-# First, get the template files
+# Template files
 top = open('templates/top.html').read()
 bottom = open('templates/bottom.html').read()
 
