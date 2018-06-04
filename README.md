@@ -1,2 +1,2 @@
-# Solo-HW-1---Homepage
+# Solo-HW-1-Homepage
 Homework Assignment 1
