@@ -1,18 +1,31 @@
-# Template files
-top = open('templates/top.html').read()
-bottom = open('templates/bottom.html').read()
+pages = [
+{
+	'filename': 'content/index.html',
+	'title': 'About Me',
+	'output_file': 'docs/index.html'
+},
+{
+	'filename': 'content/experience.html',
+	'title': 'Professional Experience',	
+	'output_file': 'docs/experience.html'
+},
+{
+	'filename': 'content/projects.html',
+	'title': 'Professional projects',
+	'output_file': 'docs/projects.html'
+}
+]
 
-#index file
-content = open('content/index.html').read()
-index_html = top + content + bottom
-open('docs/index.html', 'w+').write(index_html)
+def main():
+	for dictionary in pages:
+		base = open('template/base.html').read()
+		content = open(dictionary['filename']).read()
+		full_web_page = base.replace('{{content}}', content).replace('{{title}}', dictionary['title'])
 
-#experience file
-content = open('content/experience.html').read()
-experience_html = top + content + bottom
-open('docs/experience.html', 'w+').write(experience_html)
+		open(dictionary['output_file'], 'w+').write(full_web_page)
+main()
 
-#projects file
-content = open('content/projects.html').read()
-projects_html = top + content + bottom
-open('docs/projects.html', 'w+').write(projects_html)
+
+
+# if __name__ == '__main__':
+# 	main()
